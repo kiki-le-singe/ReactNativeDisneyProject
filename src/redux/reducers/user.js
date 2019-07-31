@@ -14,18 +14,18 @@ const userReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case types.SET_USER:
       return {
-        ...this.state,
+        ...state,
       };
     case types.SIGNIN_USER_REQUEST:
       return {
-        ...this.state,
+        ...state,
         loading: true,
         success: false,
         error: false,
       };
     case types.SIGNIN_USER_SUCCESS:
       return {
-        ...this.state,
+        ...state,
         info: payload._user,
         isConnected: true,
         loading: false,
@@ -34,14 +34,14 @@ const userReducer = (state = INITIAL_STATE, action) => {
       };
     case types.SIGNIN_USER_ERROR:
       return {
-        ...this.state,
+        ...state,
         loading: false,
         success: false,
         error: true,
       };
     case types.logout_USER_REQUEST:
       return {
-        ...this.state,
+        ...state,
         loading: true,
         success: false,
         error: false,
@@ -50,7 +50,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return INITIAL_STATE;
     case types.logout_USER_ERROR:
       return {
-        ...this.state,
+        ...state,
         loading: false,
         success: false,
         error: true,
