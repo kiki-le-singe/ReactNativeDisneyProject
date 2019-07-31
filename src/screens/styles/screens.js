@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
+
+import colors from '../../utils/colors';
 
 export default StyleSheet.create({
   safeAreaView: {
@@ -6,7 +8,9 @@ export default StyleSheet.create({
   },
   viewContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    backgroundColor: colors.grey
+  },
+  flatListContainer: {
+    padding: 25,
   },
 });
