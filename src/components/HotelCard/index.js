@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableHighlight, Button, Image } from 'react-native';
+import { View, Text, TouchableHighlight, Image } from 'react-native';
 import PropTypes from 'prop-types';
 
 import styles from './hotelCardStyles';
@@ -27,7 +27,7 @@ export class HotelCard extends React.PureComponent {
     const { addToCart, removeToCart, hotel} = this.props;
 
     this.setState({ isAdded: !isAdded }, () => {
-      !isAdded ? addToCart(hotel.id) : removeToCart(hotel.id);
+      !isAdded ? addToCart(hotel) : removeToCart(hotel);
     });
   }
 
@@ -42,7 +42,7 @@ export class HotelCard extends React.PureComponent {
           <Text style={styles.buttonTitle}>{titleButton}</Text>
         </View>
       </TouchableHighlight>
-    )
+    );
   }
 
   render() {

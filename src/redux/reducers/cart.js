@@ -2,6 +2,7 @@ import * as types from '../constants/cart';
 
 const INITIAL_STATE = {
   hotelIds: [],
+  total: 0,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -12,6 +13,7 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         hotelIds: [...state.hotelIds, payload.hotelId],
+        total: state.total + payload.price,
       };
     case types.CART_REMOVE:
       return {
@@ -19,6 +21,7 @@ export default (state = INITIAL_STATE, action) => {
         hotelIds: state.hotelIds.filter(hotelId =>
           hotelId !== payload.hotelId
         ),
+        total: state.total - payload.price,
       };
     default:
       return state;
