@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Text, SafeAreaView, View, Button, ScrollView } from 'react-native';
+import { Text, SafeAreaView, View, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -44,18 +44,11 @@ export class CartDetails extends React.PureComponent {
   }
 
   render() {
-    const { navigation } = this.props;
-
     return (
       <SafeAreaView style={screensStyles.safeAreaView}>
         <ScrollView>
           <View style={[screensStyles.viewContainer, styles.viewContainer]}>
             {this._renderContent()}
-
-            <Button
-              onPress={() => navigation.goBack()}
-              title="Dismiss"
-            />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -66,6 +59,7 @@ export class CartDetails extends React.PureComponent {
 CartDetails.propTypes = {
   hotels: PropTypes.object.isRequired,
   cart: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = ({ hotels, cart }) => ({
