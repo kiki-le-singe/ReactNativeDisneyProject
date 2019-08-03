@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import colors from 'Apps/src/utils/colors';
 import HeaderRight from 'Apps/src/components/HeaderRight';
 import HeaderLeft from 'Apps/src/components/HeaderLeft';
+import Logo from 'Apps/src/components/Logo';
 import HomeScreen from '../screens/Home';
 import HotelDetailsScreen from '../screens/HotelDetails';
 import CartDetailsModalScreen from '../screens/CartDetails';
@@ -25,6 +26,7 @@ const MainStack = createStackNavigator(
       navigationOptions: ({ navigation }) => {
        return {
          ...navigationOptions,
+         headerTitle: <Logo />,
          headerLeft: (<HeaderLeft navigation={navigation} />),
          headerRight: (<HeaderRight navigation={navigation} />),
        };
@@ -34,6 +36,7 @@ const MainStack = createStackNavigator(
       screen: HotelDetailsScreen,
       navigationOptions: {
        ...navigationOptions,
+       headerTitle: <Logo />,
      },
     },
   },
