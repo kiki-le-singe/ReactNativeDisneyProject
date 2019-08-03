@@ -20,6 +20,12 @@ const navigationOptions = {
     fontWeight: 'bold',
   },
 };
+const stackConfig = {
+  defaultNavigationOptions: {
+    ...navigationOptions,
+    headerTitle: <Logo />,
+  },
+};
 
 const MainStack = createStackNavigator(
   {
@@ -36,10 +42,7 @@ const MainStack = createStackNavigator(
   },
   {
     initialRouteName: 'Home',
-    defaultNavigationOptions: {
-      ...navigationOptions,
-      headerTitle: <Logo />,
-    },
+    ...stackConfig,
   }
 );
 
@@ -57,10 +60,7 @@ const CartDetailsModalStack = createStackNavigator(
     },
     {
       initialRouteName: 'CartDetails',
-      defaultNavigationOptions: {
-        ...navigationOptions,
-        headerTitle: <Logo />,
-      },
+      ...stackConfig,
     },
 );
 
@@ -77,10 +77,7 @@ const LoginModalStack = createStackNavigator(
     },
     {
       initialRouteName: 'Login',
-      defaultNavigationOptions: {
-        ...navigationOptions,
-        headerTitle: <Logo />,
-      },
+      ...stackConfig,
     },
 );
 
