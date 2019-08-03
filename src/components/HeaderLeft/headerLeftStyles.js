@@ -9,6 +9,8 @@ export default StyleSheet.create({
     backgroundColor: colors.green,
     padding: 5,
     width: 100,
+    marginLeft: 5,
+    borderRadius: 5,
   },
   cartCount: {
     color: colors.white,
