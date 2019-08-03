@@ -3,9 +3,6 @@ import { SafeAreaView, View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import colors from 'Apps/src/utils/colors';
-import HeaderRight from 'Apps/src/components/HeaderRight';
-import HeaderLeft from 'Apps/src/components/HeaderLeft';
 import * as hotelsActions from '../../redux/actions/hotels';
 import * as cartActions from '../../redux/actions/cart';
 import screensStyles from '../styles/screens';
@@ -13,21 +10,6 @@ import HotelCard from '../../components/HotelCard';
 import Loader from '../../components/Loader';
 
 export class Home extends React.PureComponent {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: 'LOGO',
-      headerStyle: {
-        backgroundColor: colors.grey,
-      },
-      headerTintColor: colors.white,
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-      headerLeft: (<HeaderLeft navigation={navigation} />),
-      headerRight: (<HeaderRight navigation={navigation} />),
-    };
-  };
-
   componentDidMount() {
     const { getHotels } = this.props;
 
