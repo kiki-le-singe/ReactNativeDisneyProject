@@ -4,6 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import colors from 'Apps/src/utils/colors';
 import HeaderRight from 'Apps/src/components/HeaderRight';
 import HeaderLeft from 'Apps/src/components/HeaderLeft';
+import CloseButton from 'Apps/src/components/CloseButton';
 import Logo from 'Apps/src/components/Logo';
 import HomeScreen from '../screens/Home';
 import HotelDetailsScreen from '../screens/HotelDetails';
@@ -25,33 +26,50 @@ const MainStack = createStackNavigator(
       screen: HomeScreen,
       navigationOptions: ({ navigation }) => {
        return {
-         ...navigationOptions,
-         headerTitle: <Logo />,
          headerLeft: (<HeaderLeft navigation={navigation} />),
          headerRight: (<HeaderRight navigation={navigation} />),
        };
      },
     },
-    HotelDetails: {
-      screen: HotelDetailsScreen,
-      navigationOptions: {
-       ...navigationOptions,
-       headerTitle: <Logo />,
-     },
-    },
+    HotelDetails: HotelDetailsScreen,
   },
   {
     initialRouteName: 'Home',
+    defaultNavigationOptions: {
+      ...navigationOptions,
+      headerTitle: <Logo />,
+    },
   }
 );
 
-const AppNavigator = createStackNavigator(
+const CartDetailsModalStack = createStackNavigator(
+    {
+      CartDetails: {
+        screen: CartDetailsModalScreen,
+        navigationOptions: ({ navigation }) => {
+         return {
+           headerRight: <CloseButton navigation={navigation} />,
+         };
+       },
+      },
+      HotelDetails: HotelDetailsScreen,
+    },
+    {
+      initialRouteName: 'CartDetails',
+      defaultNavigationOptions: {
+        ...navigationOptions,
+        headerTitle: <Logo />,
+      },
+    },
+);
+
+const RootStack = createStackNavigator(
   {
     Main: {
       screen: MainStack,
     },
     CartDetails: {
-      screen: CartDetailsModalScreen,
+      screen: CartDetailsModalStack,
     },
   },
   {
@@ -60,4 +78,4 @@ const AppNavigator = createStackNavigator(
   }
 );
 
-export default AppNavigator;
+export default RootStack;
