@@ -14,7 +14,7 @@ export class CartDetails extends React.PureComponent {
       const { hotelIds } = cart;
 
       // get the elements from hotel list that are in the cart
-      let hotelsInCart = list.filter(hotel => hotelIds.includes(hotel.id));
+      const hotelsInCart = list.filter(hotel => hotelIds.includes(hotel.id));
 
       return hotelsInCart.map((hotel) => {
         return (
