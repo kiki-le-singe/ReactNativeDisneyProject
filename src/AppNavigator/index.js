@@ -9,6 +9,7 @@ import Logo from 'Apps/src/components/Logo';
 import HomeScreen from '../screens/Home';
 import HotelDetailsScreen from '../screens/HotelDetails';
 import CartDetailsModalScreen from '../screens/CartDetails';
+import LoginScreen from '../screens/Login';
 
 const navigationOptions = {
   headerStyle: {
@@ -63,6 +64,26 @@ const CartDetailsModalStack = createStackNavigator(
     },
 );
 
+const LoginModalStack = createStackNavigator(
+    {
+      Login: {
+        screen: LoginScreen,
+        navigationOptions: ({ navigation }) => {
+         return {
+           headerRight: <CloseButton navigation={navigation} />,
+         };
+       },
+      },
+    },
+    {
+      initialRouteName: 'Login',
+      defaultNavigationOptions: {
+        ...navigationOptions,
+        headerTitle: <Logo />,
+      },
+    },
+);
+
 const RootStack = createStackNavigator(
   {
     Main: {
@@ -70,6 +91,9 @@ const RootStack = createStackNavigator(
     },
     CartDetails: {
       screen: CartDetailsModalStack,
+    },
+    Login: {
+      screen: LoginModalStack,
     },
   },
   {
