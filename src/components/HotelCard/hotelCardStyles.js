@@ -57,10 +57,10 @@ export default StyleSheet.create({
     bottom: 0,
   },
   isAdded: {
-    backgroundColor: colors.green,
+    backgroundColor: colors.red,
   },
   isNotAdded: {
-    backgroundColor: colors.red,
+    backgroundColor: colors.green,
   },
   buttonTitle: {
     color: colors.white,
