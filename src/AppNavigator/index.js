@@ -25,6 +25,7 @@ const stackConfig = {
     ...navigationOptions,
     headerTitle: <Logo />,
   },
+  headerLayoutPreset: 'center',
 };
 
 const MainStack = createStackNavigator(

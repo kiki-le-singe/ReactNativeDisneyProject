@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Text, Button, TextInput, SafeAreaView, View } from 'react-native';
+import { Platform, Text, Button, TextInput, SafeAreaView, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -58,7 +58,11 @@ export class Login extends React.PureComponent {
             value={password}
             secureTextEntry
           />
-          <Button title="Sign In" onPress={this._handleSignIn} color={colors.white} />
+          <Button
+            title="Sign In"
+            onPress={this._handleSignIn}
+            color={Platform.OS === 'ios' ? colors.white : colors.grey}
+          />
         </Fragment>
       );
     } else {
@@ -68,7 +72,7 @@ export class Login extends React.PureComponent {
           <Text>{user.info.username}</Text>
           <Button title="Sign Out" onPress={this._handleSignOut} color={colors.red} />
         </Fragment>
-      )
+      );
     }
   }
 

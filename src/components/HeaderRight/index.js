@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableHighlight, Text, Button } from 'react-native';
+import { View, TouchableHighlight, Text, Button, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -17,7 +17,7 @@ const HeaderRight = ({ navigation, user }) => {
       <Button
         onPress={goToLogin}
         title="Login"
-        color={colors.white}
+        color={Platform.OS === 'ios' ? colors.white : colors.grey}
       />
     );
   }

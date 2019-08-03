@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-native';
+import { Platform, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 import colors from 'Apps/src/utils/colors';
@@ -9,7 +9,7 @@ const CloseButton = ({ navigation }) => {
     <Button
       onPress={() => navigation.goBack(null)}
       title="Close"
-      color={colors.white}
+      color={Platform.OS === 'ios' ? colors.white : colors.grey}
     />
   );
 };
